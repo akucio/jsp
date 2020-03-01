@@ -53,7 +53,15 @@
     </div>
 
     <div class="row">
-        <jsp:forward page="redirected.jsp"/>
+        <jsp:forward page="redirected.jsp">
+            <jsp:param name="myParam" value="my parameter"/>
+        </jsp:forward>
+    </div>
+
+    <div class="row">
+
+
+
     </div>
 
 </div>
