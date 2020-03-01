@@ -26,14 +26,35 @@
         final LocalDate now = LocalDate.now();
         out.print(now);
     %></p>
-    <p>Licznik odwiedzin: <%= ++visitCount%>
-    </p>
 
-<%-- komentarz JSP --%>
-<!-- komentarz HTML -->
+
+    <%-- komentarz JSP --%>
+    <!-- komentarz HTML -->
 
 </div>
 <div class="container">
+
+    <div class="row">
+        <div class="col-12">
+            <p>Licznik odwiedzin: <%= ++visitCount%></p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-4">
+            <p>Server name: ${pageContext.request.serverName}</p>
+        </div>
+        <div class="col-4">
+            <p>Server port: ${pageContext.request.serverPort}</p>
+        </div>
+        <div class="col-4">
+            <p>Request URI: ${pageContext.request.requestURI}</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <jsp:forward page="redirected.jsp"/>
+    </div>
 
 </div>
 
