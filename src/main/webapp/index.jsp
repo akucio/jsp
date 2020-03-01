@@ -8,6 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%! private long visitCount = 0; %>
 <jsp:useBean id="calculator" class="pl.sda.jsp.utils.Calculator"/>
+<jsp:setProperty name="calculator" property="n" value="5"/>
 <html>
 <head>
     <title>Hello world!</title>
@@ -61,13 +62,30 @@
 
     <div class="row">
 
-        <div class="col">
-            <p>5<sup>2</sup> wynosi:
-            <%  calculator.setN(5);
-                final int square = calculator.square();
+        <div class="col-12">
+            <p><%= calculator.getN()%><sup>2</sup> wynosi:
+            <%  final int square = calculator.square();
                 out.print(square);
             %>
             </p>
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-12">
+            <form action="search.jsp">
+                <label>Szukane słowo: <input type="text" name="query"/></label>
+                <label>Strona nr: <input type="text" name="page"/></label>
+                <label>Sortowanie:
+                    <select name="sort">
+                        <option value="asc">Rosnąco</option>
+                        <option value="desc">Malejąco</option>
+                    </select>
+                </label>
+                <input type="submit" value="wyslij"/>
+            </form>
         </div>
 
     </div>
