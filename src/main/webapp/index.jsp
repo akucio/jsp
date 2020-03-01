@@ -75,7 +75,7 @@
     <div class="row">
 
         <div class="col-12">
-            <form action="search.jsp">
+            <form action="search.jsp" method="post">
                 <label>Szukane słowo: <input type="text" name="query"/></label>
                 <label>Strona nr: <input type="text" name="page"/></label>
                 <label>Sortowanie:
@@ -86,6 +86,14 @@
                 </label>
                 <input type="submit" value="wyslij"/>
             </form>
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-12">
+        <a href="search.jsp?query=blablabla&page=20&sort=asc">link</a>
         </div>
 
     </div>
