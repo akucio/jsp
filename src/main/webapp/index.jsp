@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%! private long visitCount = 0; %>
 <html>
 <head>
     <title>Hello world!</title>
@@ -25,6 +26,8 @@
         final LocalDate now = LocalDate.now();
         out.print(now);
     %></p>
+    <p>Licznik odwiedzin: <%= ++visitCount%>
+    </p>
 
 </div>
 <div class="container">
