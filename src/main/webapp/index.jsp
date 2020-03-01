@@ -21,97 +21,106 @@
 </head>
 <body>
 
-<div class="jumbotron text-center" style="margin-bottom:0">
+    <div class="jumbotron text-center" style="margin-bottom:0">
 
-    <h1><% out.println("Hello world!"); %></h1>
-    <p>Dzisiaj jest: <%
-        final LocalDate now = LocalDate.now();
-        out.print(now);
-    %></p>
+        <h1><% out.println("Hello world!"); %></h1>
+        <p>Dzisiaj jest: <%
+            final LocalDate now = LocalDate.now();
+            out.print(now);
+        %></p>
 
 
-    <%-- komentarz JSP --%>
-    <!-- komentarz HTML -->
-
-</div>
-<div class="container">
-
-    <div class="row">
-        <div class="col-12">
-            <p>Licznik odwiedzin: <%= ++visitCount%></p>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-4">
-            <p>Server name: ${pageContext.request.serverName}</p>
-        </div>
-        <div class="col-4">
-            <p>Server port: ${pageContext.request.serverPort}</p>
-        </div>
-        <div class="col-4">
-            <p>Request URI: ${pageContext.request.requestURI}</p>
-        </div>
-    </div>
-
-    <div class="row">
-<%--        <jsp:forward page="redirected.jsp">--%>
-<%--            <jsp:param name="myParam" value="my parameter"/>--%>
-<%--        </jsp:forward>--%>
-    </div>
-
-    <div class="row">
-
-        <div class="col-12">
-            <p><%= calculator.getN()%><sup>2</sup> wynosi:
-            <%  final int square = calculator.square();
-                out.print(square);
-            %>
-            </p>
-        </div>
+        <%-- komentarz JSP --%>
+        <!-- komentarz HTML -->
 
     </div>
+    <div class="container">
 
-    <div class="row">
-
-        <div class="col-12">
-            <form action="search.jsp" method="post">
-                <label>Szukane słowo: <input type="text" name="query"/></label>
-                <label>Strona nr: <input type="text" name="page"/></label>
-                <label>Sortowanie:
-                    <select name="sort">
-                        <option value="asc">Rosnąco</option>
-                        <option value="desc">Malejąco</option>
-                    </select>
-                </label>
-                <input type="submit" value="wyslij"/>
-            </form>
+        <div class="row">
+            <div class="col-12">
+                <p>Licznik odwiedzin: <%= ++visitCount%>
+                </p>
+            </div>
         </div>
 
-    </div>
-
-    <div class="row">
-
-        <div class="col-12">
-        <a href="search.jsp?query=blablabla&page=20&sort=asc">link</a>
+        <div class="row">
+            <div class="col-4">
+                <p>Server name: ${pageContext.request.serverName}</p>
+            </div>
+            <div class="col-4">
+                <p>Server port: ${pageContext.request.serverPort}</p>
+            </div>
+            <div class="col-4">
+                <p>Request URI: ${pageContext.request.requestURI}</p>
+            </div>
         </div>
 
-    </div>
-
-    <div class="row">
-
-        <div class="col-12">
-            <%
-                final Cookie cookie = new Cookie("searchId", String.valueOf(123456));
-                cookie.setMaxAge(60*60*24);
-                response.addCookie(cookie);
-            %>
+        <div class="row">
+            <%--        <jsp:forward page="redirected.jsp">--%>
+            <%--            <jsp:param name="myParam" value="my parameter"/>--%>
+            <%--        </jsp:forward>--%>
         </div>
 
+        <div class="row">
+
+            <div class="col-12">
+                <p><%= calculator.getN()%><sup>2</sup> wynosi:
+                    <% final int square = calculator.square();
+                        out.print(square);
+                    %>
+                </p>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-12">
+                <form action="search.jsp" method="post">
+                    <label>Szukane słowo: <input type="text" name="query"/></label>
+                    <label>Strona nr: <input type="text" name="page"/></label>
+                    <label>Sortowanie:
+                        <select name="sort">
+                            <option value="asc">Rosnąco</option>
+                            <option value="desc">Malejąco</option>
+                        </select>
+                    </label>
+                    <input type="submit" value="wyslij"/>
+                </form>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-12">
+                <a href="search.jsp?query=blablabla&page=20&sort=asc">search z parametrami</a>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-12">
+                <a href="session.jsp">session</a>
+            </div>
+
+        </div>
+
+        <%
+            final Cookie cookie = new Cookie("searchId", String.valueOf(123456));
+            cookie.setMaxAge(60*60*24);
+            response.addCookie(cookie);
+        %>
+
+        <%
+            request.getSession().invalidate();
+            session = request.getSession();
+            session.setAttribute("userId", 123456);
+        %>
+
+
     </div>
-
-
-</div>
 
 </body>
 </html>
