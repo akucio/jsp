@@ -21,5 +21,21 @@
         Sortowanie: <%=
     "desc".equals(request.getParameter("sort")) ? "malejąco" : "rosnąco"%>
     </p>
+
+    <p>
+        Zawartość cookie:
+        <%
+        final Cookie[] cookies = request.getCookies();
+        if (cookies != null) {
+            out.println("<h2>Znalazłem ciasteczka </h2>");
+            for (Cookie cookie: cookies) {
+                out.println("Name: " + cookie.getName() + ", ");
+                out.println("Value: " + cookie.getValue()+ "<br>");
+            }
+        } else {
+            out.println("<h2>Nie znalazłem ciasteczek </h2>");
+        }
+        %>
+    </p>
 </body>
 </html>

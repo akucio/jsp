@@ -98,6 +98,17 @@
 
     </div>
 
+    <div class="row">
+
+        <div class="col-12">
+            <%
+                final Cookie cookie = new Cookie("searchId", String.valueOf(123456));
+                cookie.setMaxAge(60*60*24);
+                response.addCookie(cookie);
+            %>
+        </div>
+
+    </div>
 
 
 </div>
