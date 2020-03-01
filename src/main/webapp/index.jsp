@@ -63,13 +63,16 @@
 
         <div class="col">
             <p>5<sup>2</sup> wynosi:
-            <% final int square = calculator.square(5);
+            <%  calculator.setN(5);
+                final int square = calculator.square();
                 out.print(square);
             %>
             </p>
         </div>
 
     </div>
+
+
 
 </div>
 
