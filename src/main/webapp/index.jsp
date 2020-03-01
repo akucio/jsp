@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%! private long visitCount = 0; %>
+<jsp:useBean id="calculator" class="pl.sda.jsp.utils.Calculator"/>
 <html>
 <head>
     <title>Hello world!</title>
@@ -53,14 +54,20 @@
     </div>
 
     <div class="row">
-        <jsp:forward page="redirected.jsp">
-            <jsp:param name="myParam" value="my parameter"/>
-        </jsp:forward>
+<%--        <jsp:forward page="redirected.jsp">--%>
+<%--            <jsp:param name="myParam" value="my parameter"/>--%>
+<%--        </jsp:forward>--%>
     </div>
 
     <div class="row">
 
-
+        <div class="col">
+            <p>5<sup>2</sup> wynosi:
+            <% final int square = calculator.square(5);
+                out.print(square);
+            %>
+            </p>
+        </div>
 
     </div>
 
