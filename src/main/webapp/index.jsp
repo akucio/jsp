@@ -11,6 +11,7 @@
     <title>Hello world!</title>
 </head>
 <body>
-    <h3>Hello world!</h3>
+    <h3><% out.println("Hello world!!!"); %></h3>
+    <p>Dzisiaj jest: <%= java.time.LocalDate.now() %></p>
 </body>
 </html>
