@@ -29,6 +29,9 @@
     <p>Licznik odwiedzin: <%= ++visitCount%>
     </p>
 
+<%-- komentarz JSP --%>
+<!-- komentarz HTML -->
+
 </div>
 <div class="container">
 
